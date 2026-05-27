@@ -35,12 +35,12 @@ def generate_qr_code(link, fill_color='black', back_color='white'):
 def send_message(port, smtp_server, sender_email, receiver_email, password):
     """
     Sends a message to the given SMTP server.
-    :param port:
-    :param smtp_server:
-    :param sender_email:
-    :param receiver_email:
-    :param password:
-    :return:
+    :param port: PORT of the SMTP server
+    :param smtp_server: SMTP server
+    :param sender_email: email address of the sender
+    :param receiver_email: email address of the receiver
+    :param password: encryption password of the sender
+    :return: None
     """
     logger.info(f'Sending message to {receiver_email}')
     message = """\

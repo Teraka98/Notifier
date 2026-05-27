@@ -1,0 +1,92 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #f5f5f4;
+  color: #1c1c1b;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  border: 0.5px solid rgba(0,0,0,0.1);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #f1efea;
+  border: 0.5px solid rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-circle i {
+  font-size: 36px;
+  color: #888780;
+}
+
+.message h1 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #1c1c1b;
+  margin-bottom: 0.5rem;
+}
+
+.message p {
+  font-size: 14px;
+  color: #5f5e5a;
+  line-height: 1.6;
+}
+
+.notify-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 14px;
+  border: 0.5px solid rgba(0,0,0,0.2);
+  background: #fff;
+  color: #1c1c1b;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.notify-btn:hover { background: #f5f5f4; }
+.notify-btn:active { transform: scale(0.97); }
+
+.notify-btn i { font-size: 20px; }
+
+.notify-btn.sent {
+  border-color: rgba(15, 110, 86, 0.4);
+  color: #0f6e56;
+  background: #e1f5ee;
+  pointer-events: none;
+}
+
+.status-note {
+  font-size: 13px;
+  color: #888780;
+  min-height: 18px;
+}

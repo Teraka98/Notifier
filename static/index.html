@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buzzer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/buzzer.css" />
+</head>
+<body>
+  <div class="card">
+    <div class="icon-circle">
+      <i class="ti ti-bell-off"></i>
+    </div>
+
+    <div class="message">
+      <h1>Hello, sorry the buzzer is not working</h1>
+      <p>Tap the button below and we'll let them know you're here.</p>
+    </div>
+
+    <form action="/notify" method="post">
+      <button class="notify-btn" type="submit">
+        <i class="ti ti-bell"></i>
+        <span>Notify</span>
+      </button>
+    </form>
+
+    <p class="status-note" id="statusNote"></p>
+  </div>
+
+  <script>
+    function handleNotify() {
+      const btn = document.getElementById('notifyBtn');
+      const icon = document.getElementById('btnIcon');
+      const label = document.getElementById('btnLabel');
+      const note = document.getElementById('statusNote');
+
+      btn.classList.add('sent');
+      icon.className = 'ti ti-check';
+      label.textContent = 'Notified';
+      note.textContent = "They've been notified and will be right down.";
+    }
+  </script>
+</body>
+</html>

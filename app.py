@@ -1,13 +1,11 @@
 import os
 
-import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
-from pyngrok import ngrok
 
-from utils import send_message, generate_qr_code
+from utils import send_message
 
 load_dotenv()
 ### Email ######
@@ -16,8 +14,6 @@ SMTP_SERVER:str = os.getenv('SMTP_SERVER')
 SENDER_EMAIL:str = os.getenv('SENDER_EMAIL')
 RECEIVER_EMAIL:str = os.getenv('RECEIVER_EMAIL')
 PASSWORD:str = os.getenv('PASSWORD')
-### Ngrok ######
-PORT_NGROK:str = os.getenv("PORT_NGROK")
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -40,7 +36,3 @@ def notify():
     return RedirectResponse(url="/", status_code=303)
 
 
-if __name__ == "__main__":
-    tunnel = ngrok.connect(PORT_NGROK)
-    generate_qr_code(link=tunnel.public_url)
-    uvicorn.run(app, port=8000)

@@ -23,6 +23,9 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 def index():
     return FileResponse("static/index.html")
 
+@app.get("/notified")
+def notified():
+    return FileResponse("static/notified.html")
 
 @app.post("/notify")
 def notify():
@@ -33,6 +36,6 @@ def notify():
         password=PASSWORD,
         smtp_server=SMTP_SERVER,
     )
-    return RedirectResponse(url="/", status_code=303)
+    return RedirectResponse(url="/notified", status_code=303)
 
 

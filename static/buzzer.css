@@ -56,7 +56,6 @@ body {
 }
 
 .notify-btn {
-  display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
@@ -90,3 +89,12 @@ body {
   color: #888780;
   min-height: 18px;
 }
+
+body:not(.notified) .notify-btn { display: flex; }
+body.notified .notify-btn { display: none; }
+
+/* also make the form full width so the button stretches */
+form { width: 100%; }
+
+.countdown { font-size: 13px; color: #888780; }
+body.notified .countdown { display: block; }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notified</title>
+  <link rel="stylesheet" href="/static/buzzer.css" />
+
+</head>
+<body class="notified">
+  <div class="card">
+    <div class="icon-circle">&#9203;</div>
+    <div class="message">
+      <h1>They have been notified of your presence, they are coming down.</h1>
+      <p>Press Notify again if they are not there in 1 minute.</p>
+    </div>
+    <p class="countdown" id="countdown">Button available in <span id="timer">60</span>s</p>
+    <form action="/notify" method="post">
+      <button class="notify-btn" id="notify-btn" type="submit">
+        <span>Notify again</span>
+      </button>
+    </form>
+  </div>
+
+  <script>
+    let seconds = 60;
+    const timerEl = document.getElementById('timer');
+    const countdownEl = document.getElementById('countdown');
+    const btn = document.getElementById('notify-btn');
+
+    const interval = setInterval(() => {
+      seconds--;
+      timerEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(interval);
+        countdownEl.style.display = 'none';
+        btn.style.display = 'flex';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
